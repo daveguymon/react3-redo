@@ -19,19 +19,33 @@ class DetailedView extends Component {
 
 
   componentWillReceiveProps(nextProps){
-    console.log("Next Props are: ", nextProps.tasksArray)
+    console.log("Next props: ", nextProps)
+    this.setState({
+      taskObj: this.props.tasksArray
+    })
   }
 
+
+
   render() {
+
+    let paramsID = this.props.match.params.id;
+
+    let targetTask = this.props.tasksArray.find(task => {
+      return task.id == paramsID
+    })
+
+    console.log("TargetTask is: ", targetTask, "TargetID is: ", targetTask.id)
+
 
     return (
       <div>
         <div className="title">
-          <p>Title: {this.state.title}</p>
+          <p>Title: {targetTask.title}</p>
         </div>
 
         <div className="description">
-          <p>Description: {this.state.description}</p>
+          <p>Description: {targetTask.description}</p>
         </div>
 
         <div className="backToListAllTasks">
