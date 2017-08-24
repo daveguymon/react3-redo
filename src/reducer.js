@@ -5,7 +5,6 @@ const initialState={
 }
 
 const GET_TASKS = 'GET_TASKS';
-const GET_TASKS_PENDING = 'GET_TASKS_PENDING';
 const GET_TASKS_FULFILLED = 'GET_TASKS_FULFILLED';
 
 

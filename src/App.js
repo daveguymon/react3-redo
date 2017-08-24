@@ -18,7 +18,7 @@ export default class App extends Component {
         </div>
         <Switch>
           <Route exact path="/" component={ListAllTasks} />
-          <Route path="/:id" component={DetailedView} />
+          <Route path="/:index/:id" component={DetailedView} />
         </Switch>
       </div>
     );

@@ -9,10 +9,8 @@ class ListAllTasks extends Component {
 
   render(){
 
-    {console.log('ListAllTasks Has Arrived.')}
-
     const listTasks = this.props.tasksArray.map((task, i) => (
-      <IndividualTask task={task} key={i} index={i}/>
+      <IndividualTask task={task} key={i} index={i} completed={task.completed}/>
     ))
 
     return (

@@ -3,11 +3,12 @@ import {Link} from 'react-router-dom';
 
 export default function IndividualTask (props) {
 
-  {console.log("The task object is: ", props.task)}
+  const completedTaskStyle = {color: 'grey', textDecoration: 'line-through'}
+
   return (
     <div>
-      <Link to={"/" + props.task.id}>
-        <p>{props.task.title}</p>
+      <Link to={"/" + props.index + "/" + props.task.id}>
+        <p style={props.completed ? completedTaskStyle : null}>{props.task.title}</p>
       </Link>
     </div>
   )
