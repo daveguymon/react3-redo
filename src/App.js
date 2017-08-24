@@ -1,26 +1,26 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
-import {connect} from 'react-redux';
-import {getTasks} from './reducer';
+import {Switch, Route} from 'react-router-dom';
+import ListAllTasks from './ListAllTasks';
+import DetailedView from './DetailedView';
 
-class App extends Component {
+
+export default class App extends Component {
 
   render() {
+
     return (
       <div className="App">
         <div className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <h2>Welcome to React</h2>
         </div>
-        <button onClick={this.props.getTasks}>Get All Tasks</button>
+        <Switch>
+          <Route exact path="/" component={ListAllTasks} />
+          <Route path="/:id" component={DetailedView} />
+        </Switch>
       </div>
     );
   }
 }
-
-function mapStateToProps(state){
-  return {tasksArray: state.tasksArray}
-}
-
-export default connect(mapStateToProps, {getTasks})(App);
